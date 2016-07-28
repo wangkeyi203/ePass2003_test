@@ -5,6 +5,7 @@
 #define PAM_DEBUG_ARG      1
 
 
+#define   MODULUS_BIT_LENGTH    1024
 //const CK_ULONG const MODULUS_BIT_LENGTH = 1024;
 
 #include <security/pam_modules.h>
@@ -28,43 +29,19 @@ void my_pam_free (pam_handle_t * pamh, void *pbuf, int error_status);
 
 //pkcs 封装
 
+CK_SLOT_ID_PTR m_pSlotList;
+CK_VOID_PTR m_pApplication;
+CK_SESSION_HANDLE m_hSession;
+CK_OBJECT_HANDLE m_hPubKey;
+CK_OBJECT_HANDLE m_hPriKey;
+CK_BYTE m_pSignature[MODULUS_BIT_LENGTH];
+CK_BYTE_PTR m_pbCipherBuffer;
+CK_ULONG m_ulSignatureLen;
+CK_ULONG m_ulCipherLen;
 
 
-typedef int bool;
-#define TRUE 1
-#define FALSE 0
-
-typedef struct CPKCSDemo
-{
-
-    void CPKCSDemo(void);
-    ~CPKCSDemo();
-    void ShowMsg(char *strInfo);
-    void ShowErr(char *strInfo, CK_RV rv);
-    void ClearMsg(void);
-    CK_RV Connect();
-    CK_RV Login();
-    CK_RV Keypairgen();
-    void Sign();
-    void Verify();
-    void Clearinfo();
-    void Encrypt();
-    void Decrypt();
-    void Destroy();
-
-    CK_SLOT_ID_PTR m_pSlotList;
-    CK_VOID_PTR m_pApplication;
-    CK_SESSION_HANDLE m_hSession;
-    CK_OBJECT_HANDLE m_hPubKey;
-    CK_OBJECT_HANDLE m_hPriKey;
-    bool m_bKeyGen;
-    CK_BYTE m_pSignature[1024];
-    CK_BYTE_PTR m_pbCipherBuffer;
-    CK_ULONG m_ulSignatureLen;
-    CK_ULONG m_ulCipherLen;
-
-};
-
+CK_RV Connect();
+CK_RV Login();
 
 
 #endif

@@ -57,8 +57,7 @@ DESC:
 #define CKM_SCB2_ECB			CKM_VENDOR_DEFINED + 43
 #define CKM_SCB2_CBC_PAD		CKM_VENDOR_DEFINED + 44
 
-#deifne   MODULUS_BIT_LENGTH    1024
-//const CK_ULONG const MODULUS_BIT_LENGTH = 1024;
+
 
 // CK_SSF33_CBC_PARAMS provides the parameters to the CKM_SSF33_CBC mechanism */
 typedef struct CK_SSF33_CBC_PARAMS {

@@ -143,14 +143,28 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
                 return FALSE;
             }
 
-            struct CPKCSDemo demo;
-            rv = demo.Connect();
+            m_pSlotList = NULL_PTR;
+            //m_pApplication = new char[255];
+            m_pApplication = (char *)malloc(sizeof(char)*255);
+            memset(m_pApplication, 0, 255);
+            strcpy((char*)m_pApplication, "PKCS Demo App");
+            m_hSession = NULL_PTR;
+            m_hPubKey = NULL_PTR;
+            m_hPriKey = NULL_PTR;
+            //m_bKeyGen = FALSE;
+            memset(m_pSignature, 0, MODULUS_BIT_LENGTH);
+            m_ulSignatureLen = sizeof(m_pSignature);
+            m_pbCipherBuffer = NULL_PTR;
+            m_ulCipherLen = 0;
+
+
+            rv = Connect();
             if(CKR_OK != rv)
             {
                 C_Finalize(NULL_PTR);
                 return FALSE;
             }
-            rv = demo.Login();
+            rv = Login();
             if(CKR_OK != rv)
             {
                 C_Finalize(NULL_PTR);
