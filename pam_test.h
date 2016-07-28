@@ -19,7 +19,7 @@
 
 
 
-#define DPRINT if (ctrl & PAM_DEBUG_ARG) my_syslog
+#define DPRINT if (ctrl & PAM_DEBUG_ARG) sample_syslog
 
 #define PAM_RET_CHECK(ret) if(PAM_SUCCESS != ret)  {return ret; }
 
