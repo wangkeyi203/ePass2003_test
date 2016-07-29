@@ -40,7 +40,7 @@ CK_ULONG m_ulSignatureLen;
 CK_ULONG m_ulCipherLen;
 
 
-CK_RV Connect();
+CK_RV Connect(CK_SLOT_ID_PTR pSlot);
 CK_RV Login();
 
 

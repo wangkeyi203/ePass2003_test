@@ -47,12 +47,12 @@ CK_MECHANISM ckMechanism = {CKM_RSA_PKCS, NULL_PTR, 0};
 //CK_ULONG ulMsgLen = strlen((const char *)pbMsg);
 CK_ULONG ulMsgLen =41;
 
-CK_RV Connect()
+CK_RV Connect(CK_SLOT_ID_PTR pSlot)
 {
-    if(m_hSession) return CKR_OK;
+    //if(m_hSession) return CKR_OK;
 
     CK_RV rv;
-    CK_ULONG ulCount = 0;
+ /*   CK_ULONG ulCount = 0;
     rv = C_GetSlotList(TRUE, NULL_PTR, &ulCount);
     if(CKR_OK != rv )
     {
@@ -85,9 +85,9 @@ CK_RV Connect()
         printf("Can't connect to Token,Make sure you have inserted Token\n");
         return rv;
     }
-
+    */
     rv = C_OpenSession(
-            m_pSlotList[0],  CKF_RW_SESSION | CKF_SERIAL_SESSION,
+            pSlot,  CKF_RW_SESSION | CKF_SERIAL_SESSION,
             &m_pApplication, NULL_PTR, &m_hSession);
     if(CKR_OK != rv )
     {

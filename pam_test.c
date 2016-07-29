@@ -229,13 +229,39 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             return PAM_AUTH_ERR ;
         }
         debug_printf("111111111111111\n");
+
+
+        m_pApplication = (char *)malloc(sizeof(char)*255);
+        memset(m_pApplication, 0, 255);
+        strcpy((char*)m_pApplication, "PKCS Demo App");
+        m_hSession = NULL_PTR;
+        m_hPubKey = NULL_PTR;
+        m_hPriKey = NULL_PTR;
+
+        memset(m_pSignature, 0, MODULUS_BIT_LENGTH);
+        m_ulSignatureLen = sizeof(m_pSignature);
+        m_pbCipherBuffer = NULL_PTR;
+        m_ulCipherLen = 0;
+
+        rv = Connect(pSlotList[i]);
+        if(CKR_OK != rv)
+        {
+            C_Finalize(NULL_PTR);
+            return PAM_AUTH_ERR;
+        }
+        rv = Login();
+        if(CKR_OK != rv)
+        {
+            C_Finalize(NULL_PTR);
+            return PAM_AUTH_ERR;
+        }
         /*
         if(!strcasecmp("root", puser))
         {
             //用户是root 验证usbkey
 
 
-            m_pSlotList = NULL_PTR;
+
             m_pApplication = (char *)malloc(sizeof(char)*255);
             memset(m_pApplication, 0, 255);
             strcpy((char*)m_pApplication, "PKCS Demo App");
