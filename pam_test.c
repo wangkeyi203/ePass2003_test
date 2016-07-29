@@ -6,6 +6,12 @@
 #define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
 
+#ifdef _DEBUG
+#define debug_printf(format, ...)	 printf(format, ##__VA_ARGS__)
+#else
+#define debug_printf(format, ...)
+#endif
+
 #define DPRINT if (ctrl & PAM_DEBUG_ARG) sample_syslog
 
 #define PAM_RET_CHECK(ret) if(PAM_SUCCESS != ret) \
@@ -101,7 +107,7 @@ int my_converse(pam_handle_t *pamh, int msg_style, char *message, char **passwor
 #ifdef PAM_SM_AUTH
 PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-    char *puser, *ppwd;
+    char *puser, *ppwd, *get_usr, token;
     int nret;
     int nloop;
     int nChallenge;
@@ -109,9 +115,15 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     char szbuf[256];
     char szconf[256];
     char *resp2challenge = NULL;
+    char *ret_fgets = NULL;
 
+    CK_SLOT_ID_PTR pSlotList = NULL_PTR;
+    FILE *fp;
     CK_RV rv;
+    CK_ULONG ulCount = 0;
+    CK_TOKEN_INFO  m_Info;
 
+    char line[100] = {'\0'};
     int ctrl = 0;
     memset(szconf, 0, 256);
     //通过这个函数获得用户名  
@@ -127,31 +139,98 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     }
     else
     {
-        //username
-        //如果用户名为root,请用户输入附加密码 "123456"
+        //打开配置文件
 
+        if((fp = fopen("/tmp/profile", "r"))== NULL)
+        {
+            //perror("File open error\n");
+            debug_printf("open error\n");
+            return PAM_SYSTEM_ERR;
+        }
+
+
+        //cmp username
+
+        while (ret_fgets = fgets(line, 100, fp) != NULL)
+        {
+            int len = strlen(line);
+            line[len-1] = '\0';
+            token = strtok(line, ":");
+            debug_printf("name = %s\n", token);
+            if (!strcasecmp (token, puser))
+            {
+                token = strtok(NULL, ":");//token is number
+                debug_printf("serialnu = %s\n", token);
+                break;
+            }
+
+        }
+
+        //can't find name
+        if(ret_fgets == NULL)
+        {
+            int *pret = (int *) malloc (sizeof (int));
+            DPRINT (LOG_DEBUG, "Get  file info failed");
+            *pret = 1;
+            pam_set_data(pamh, "my_setcred_return", (void *)pret, my_pam_free);
+            fclose(fp);
+            return PAM_SYSTEM_ERR;
+        }
+        //get key number
+        rv = C_Initialize(NULL_PTR); //初始化PKCS库
+
+        if(CKR_OK != rv)
+        {
+            printf("Can not load PKCS#11 lib\n");
+            C_Finalize(NULL_PTR);
+            return FALSE;
+        }
+
+        rv = C_GetSlotList(TRUE, NULL_PTR, &ulCount);
+        if(ulCount <= 0)
+        {
+            printf("Please insert usbkey\n");
+            return FALSE;
+        }
+
+        pSlotList = (CK_SLOT_ID_PTR)malloc(ulCount * sizeof(CK_SLOT_ID));
+        if (! pSlotList)
+        {
+            return FALSE;
+        }
+
+        rv = C_GetSlotList(TRUE, pSlotList, &ulCount);
+        //cmp number
+
+        for(CK_ULONG i = 0; i < ulCount; i++)
+        {
+            debug_printf("\nGet the serial number of the %d Token", i + 1);
+            rv = C_GetTokenInfo(pSlotList[i], &m_Info);
+            CK_BYTE sn[17];
+            sn[16] = 0;
+
+            memcpy(sn, m_Info.serialNumber, 16);
+            debug_printf("\nSerial number = [%s]\n", sn);
+            if (!strcasecmp(sn,token))
+                break;
+            if (ulCount == (i+1))
+                return FALSE;
+        }
+
+        /*
         if(!strcasecmp("root", puser))
         {
             //用户是root 验证usbkey
-            rv = C_Initialize(NULL_PTR); //初始化PKCS库
 
-            if(CKR_OK != rv)
-            {
-                printf("Can not load PKCS#11 lib\n");
-
-                C_Finalize(NULL_PTR);
-                return FALSE;
-            }
 
             m_pSlotList = NULL_PTR;
-            //m_pApplication = new char[255];
             m_pApplication = (char *)malloc(sizeof(char)*255);
             memset(m_pApplication, 0, 255);
             strcpy((char*)m_pApplication, "PKCS Demo App");
             m_hSession = NULL_PTR;
             m_hPubKey = NULL_PTR;
             m_hPriKey = NULL_PTR;
-            //m_bKeyGen = FALSE;
+
             memset(m_pSignature, 0, MODULUS_BIT_LENGTH);
             m_ulSignatureLen = sizeof(m_pSignature);
             m_pbCipherBuffer = NULL_PTR;
@@ -170,6 +249,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
                 C_Finalize(NULL_PTR);
                 return FALSE;
             }
+            */
 
 
 
@@ -197,6 +277,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             */
         }
     }
+    fclose(fp);
     return PAM_SUCCESS;
 }
 
