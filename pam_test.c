@@ -5,7 +5,7 @@
 #define MODULE_NAME "pam_sample"
 #define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
-
+#define _DEBUG
 #ifdef _DEBUG
 #define debug_printf(format, ...)	 printf(format, ##__VA_ARGS__)
 #else
@@ -107,7 +107,7 @@ int my_converse(pam_handle_t *pamh, int msg_style, char *message, char **passwor
 #ifdef PAM_SM_AUTH
 PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, const char **argv)
 {
-    char *puser, *ppwd, *get_usr, token;
+    char *puser, *ppwd, *get_usr, *token;
     int nret;
     int nloop;
     int nChallenge;
@@ -131,7 +131,6 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     if(PAM_SUCCESS != nret)
     {
         int *pret = (int *)malloc(sizeof(int));
-        //makelog("get username failed");
         DPRINT(LOG_DEBUG, "Get user name failed");
         *pret = nret;
         pam_set_data(pamh, "sample_setcred_return", (void *)pret, my_pam_free);
@@ -140,27 +139,28 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     else
     {
         //打开配置文件
-
-        if((fp = fopen("/tmp/profile", "r"))== NULL)
+        debug_printf("%s\n",puser);
+        debug_printf("get name  success\n");
+        if((fp = fopen("/tmp/pam_test.conf", "r"))== NULL)
         {
-            //perror("File open error\n");
             debug_printf("open error\n");
             return PAM_SYSTEM_ERR;
         }
 
-
         //cmp username
 
-        while (ret_fgets = fgets(line, 100, fp) != NULL)
+        while ((ret_fgets = fgets(line, 100, fp))!= NULL)
         {
-            int len = strlen(line);
-            line[len-1] = '\0';
+            debug_printf("get success\n");
+            debug_printf("\n%s\n",line);
+            //int len = strlen(line);
+            //line[len-1] = '\0';
             token = strtok(line, ":");
             debug_printf("name = %s\n", token);
             if (!strcasecmp (token, puser))
             {
                 token = strtok(NULL, ":");//token is number
-                debug_printf("serialnu = %s\n", token);
+                debug_printf("get number = %s\n", token);
                 break;
             }
 
