@@ -116,7 +116,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     char szconf[256];
     char *resp2challenge = NULL;
     char *ret_fgets = NULL;
-
+    CK_ULONG i;
     CK_SLOT_ID_PTR pSlotList = NULL_PTR;
     FILE *fp;
     CK_RV rv;
@@ -184,7 +184,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         {
             printf("Can not load PKCS#11 lib\n");
             C_Finalize(NULL_PTR);
-            return FALSE;
+            return PAM_AUTH_ERR;
         }
 
         rv = C_GetSlotList(TRUE, NULL_PTR, &ulCount);
@@ -192,20 +192,20 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         {
             printf("Please insert usbkey\n");
             C_Finalize(NULL_PTR);
-            return FALSE;
+            return PAM_AUTH_ERR;
         }
 
         pSlotList = (CK_SLOT_ID_PTR)malloc(ulCount * sizeof(CK_SLOT_ID));
         if (! pSlotList)
         {
             C_Finalize(NULL_PTR);
-            return FALSE;
+            return PAM_AUTH_ERR;
         }
 
         rv = C_GetSlotList(TRUE, pSlotList, &ulCount);
         //cmp number
 
-        for(CK_ULONG i = 0; i < ulCount; i++)
+        for(i = 0; i < ulCount; i++)
         {
             debug_printf("\nGet the serial number of the %d Token", i + 1);
             rv = C_GetTokenInfo(pSlotList[i], &m_Info);
@@ -213,15 +213,22 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             sn[16] = 0;
 
             memcpy(sn, m_Info.serialNumber, 16);
-            debug_printf("\nSerial number = [%s]\n", sn);
+            debug_printf("\nusb Serial number = %s\n", sn);
+            debug_printf("usbconf number = %s\n",token);
+            debug_printf("\n\n1111111   %d     %d\n",i,ulCount);
             if (!strcasecmp(sn,token))
+            {
                 break;
-            if (ulCount == (i+1)) {
-                C_Finalize(NULL_PTR);
-                return FALSE;
             }
+
         }
 
+        if (ulCount == (i+1))
+        {
+            C_Finalize(NULL_PTR);
+            return PAM_AUTH_ERR ;
+        }
+        debug_printf("111111111111111\n");
         /*
         if(!strcasecmp("root", puser))
         {
@@ -270,15 +277,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
                 pam_set_data(pamh, "sample_setcred_return", (void *)pret, my_pam_free);
                 return nret;
             }
-            //you have get the extra password
-            if(strcasecmp("123456", ppwd))
-            {
-                int *pret = (int *)malloc(sizeof(int));
-                *pret = PAM_AUTH_ERR;
-                DPRINT(LOG_DEBUG, "Invalid extra password");
-                pam_set_data(pamh, "sample_setcred_return", (void *)pret, my_pam_free);
-                return PAM_AUTH_ERR;
-            }
+
             */
 
         }
