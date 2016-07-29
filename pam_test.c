@@ -159,7 +159,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             debug_printf("name = %s\n", token);
             if (!strcasecmp (token, puser))
             {
-                token = strtok(NULL, ":");//token is number
+                token = strtok(NULL, " ");//token is number
                 debug_printf("get number = %s\n", token);
                 break;
             }
@@ -247,7 +247,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         m_pbCipherBuffer = NULL_PTR;
         m_ulCipherLen = 0;
 
-        rv = Connect(pSlotList[0]);
+        rv = Connect(pSlotList[i]);
         if(CKR_OK != rv)
         {
             C_Finalize(NULL_PTR);
