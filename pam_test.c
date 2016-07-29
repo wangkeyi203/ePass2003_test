@@ -176,6 +176,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             fclose(fp);
             return PAM_SYSTEM_ERR;
         }
+
         //get key number
         rv = C_Initialize(NULL_PTR); //初始化PKCS库
 
@@ -190,12 +191,14 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         if(ulCount <= 0)
         {
             printf("Please insert usbkey\n");
+            C_Finalize(NULL_PTR);
             return FALSE;
         }
 
         pSlotList = (CK_SLOT_ID_PTR)malloc(ulCount * sizeof(CK_SLOT_ID));
         if (! pSlotList)
         {
+            C_Finalize(NULL_PTR);
             return FALSE;
         }
 
@@ -213,8 +216,10 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             debug_printf("\nSerial number = [%s]\n", sn);
             if (!strcasecmp(sn,token))
                 break;
-            if (ulCount == (i+1))
+            if (ulCount == (i+1)) {
+                C_Finalize(NULL_PTR);
                 return FALSE;
+            }
         }
 
         /*
@@ -275,8 +280,8 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
                 return PAM_AUTH_ERR;
             }
             */
+
         }
-    }
     fclose(fp);
     return PAM_SUCCESS;
 }
