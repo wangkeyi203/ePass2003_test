@@ -156,11 +156,11 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             //int len = strlen(line);
             //line[len-1] = '\0';
             token = strtok(line, ":");
-            debug_printf("name = %s\n", token);
+            debug_printf("name = %s|\n", token);
             if (!strcasecmp (token, puser))
             {
-                token = strtok(NULL, " ");//token is number
-                debug_printf("get number = %s\n", token);
+                token = strtok(NULL,":");//token is number
+                debug_printf("get number = %s|\n", token);
                 break;
             }
 
@@ -205,7 +205,9 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         rv = C_GetSlotList(TRUE, pSlotList, &ulCount);
         //cmp number
 
-        for(i = 0; i < ulCount; i++)
+        //for(i = 0; i < ulCount; i++)
+        i=0;
+        while(i < ulCount)
         {
             debug_printf("%d\n",i);
             debug_printf("\nGet the serial number of the %d Token", i + 1);
@@ -214,8 +216,8 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             sn[16] = 0;
 
             memcpy(sn, m_Info.serialNumber, 16);
-            debug_printf("\nusb Serial number = %s\n", sn);
-            debug_printf("usbconf number = %s\n",token);
+            debug_printf("\nusb Serial number = %s|\n", sn);
+            debug_printf("usbconf number = %s|\n",token);
             debug_printf("%d\n",i);
             debug_printf("%d\n",strcasecmp(sn,token));
             if (!strcasecmp(sn,token))
@@ -223,11 +225,12 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
 
                 break;
             }
+            ++i;
             debug_printf("---------------------\n");
 
         }
         debug_printf("\n\n1111111   %d     %d\n",i,ulCount);
-        if (ulCount == (i+1))
+        if (ulCount == (i))
         {
             C_Finalize(NULL_PTR);
             return PAM_AUTH_ERR ;
