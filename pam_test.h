@@ -1,6 +1,6 @@
 #ifndef __PAM_TEST_H
 #define __PAM_TEST_H
-#define MODULE_NAME "pam_my"
+
 #define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
 
@@ -15,6 +15,7 @@
 #include <stdarg.h>
 #include <syslog.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "cryptoki_ext.h"
 
 

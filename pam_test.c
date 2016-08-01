@@ -5,7 +5,7 @@
 #define MODULE_NAME "pam_sample"
 #define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
-#define _DEBUG
+//#define _DEBUG
 #ifdef _DEBUG
 #define debug_printf(format, ...)	 printf(format, ##__VA_ARGS__)
 #else
@@ -13,11 +13,6 @@
 #endif
 
 #define DPRINT if (ctrl & PAM_DEBUG_ARG) sample_syslog
-
-#define PAM_RET_CHECK(ret) if(PAM_SUCCESS != ret) \
-                               {                        \  
-                                    return ret;         \  
-                               }
 
 
 

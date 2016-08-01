@@ -107,15 +107,19 @@ CK_RV Connect(CK_SLOT_ID_PTR pSlot)
 CK_RV Login()
 {
 
-    printf("You Must input user pin before generating RSA Key pair\n");
-    char s[32];
-    scanf("%s",s);
+    //printf("You Must input user pin before generating RSA Key pair\n");
+    char *s;
+    //scanf("%s",s);
+    s = getpass("You must input user pin before login:");
     g_strUserPIN = s;
     CK_ULONG ulPIN = strlen(g_strUserPIN);
     CK_BYTE_PTR pPIN = (CK_BYTE_PTR)g_strUserPIN;
 
     CK_RV rv;
     rv = C_Login(m_hSession, CKU_USER, pPIN, ulPIN);
+
+    while(*s != 0)
+            *s++ = 0;
 
     if(CKR_OK != rv)
     {

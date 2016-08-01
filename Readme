@@ -1,0 +1,11 @@
+2016.8.1
+gcc -o pam_test.so -shared -fPIC *.c -lpam libcastle.so.1.0.0
+
+su
+
+cp pam_test.so /lib64/security/
+
+/etc/pam.d/login  add    auth	required	pam_test.so
+
+/etc/sysconfig/selinux      SELINUX=enforcing -> SELINUX=permissive
+chcon -t textrel_shlib_t /lib64/security/pam_test.so
