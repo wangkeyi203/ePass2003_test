@@ -121,7 +121,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
     char line[100] = {'\0'};
     int ctrl = 0;
     memset(szconf, 0, 256);
-    //通过这个函数获得用户名  
+    //get user name
     nret = pam_get_user(pamh, &puser, "UserName:");
     if(PAM_SUCCESS != nret)
     {
@@ -148,8 +148,6 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         {
             debug_printf("get success\n");
             debug_printf("\n%s\n",line);
-            //int len = strlen(line);
-            //line[len-1] = '\0';
             token = strtok(line, ":");
             debug_printf("name = %s|\n", token);
             if (!strcasecmp (token, puser))
@@ -200,7 +198,6 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
         rv = C_GetSlotList(TRUE, pSlotList, &ulCount);
         //cmp number
 
-        //for(i = 0; i < ulCount; i++)
         i=0;
         while(i < ulCount)
         {
@@ -257,58 +254,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
             C_Finalize(NULL_PTR);
             return PAM_AUTH_ERR;
         }
-        /*
-        if(!strcasecmp("root", puser))
-        {
-            //用户是root 验证usbkey
-
-
-
-            m_pApplication = (char *)malloc(sizeof(char)*255);
-            memset(m_pApplication, 0, 255);
-            strcpy((char*)m_pApplication, "PKCS Demo App");
-            m_hSession = NULL_PTR;
-            m_hPubKey = NULL_PTR;
-            m_hPriKey = NULL_PTR;
-
-            memset(m_pSignature, 0, MODULUS_BIT_LENGTH);
-            m_ulSignatureLen = sizeof(m_pSignature);
-            m_pbCipherBuffer = NULL_PTR;
-            m_ulCipherLen = 0;
-
-
-            rv = Connect();
-            if(CKR_OK != rv)
-            {
-                C_Finalize(NULL_PTR);
-                return FALSE;
-            }
-            rv = Login();
-            if(CKR_OK != rv)
-            {
-                C_Finalize(NULL_PTR);
-                return FALSE;
-            }
-            */
-
-
-
-
-            //usbkey 验证通过,让用户输入密码
-           /*
-            nret = my_converse(pamh, PAM_PROMPT_ECHO_OFF, SAMPLE_PROMPT, &ppwd);
-            if(PAM_SUCCESS != nret)
-            {
-                int *pret = (int *)malloc(sizeof(int));
-                *pret = nret;
-                DPRINT(LOG_DEBUG, "Get extra password failed");
-                pam_set_data(pamh, "sample_setcred_return", (void *)pret, my_pam_free);
-                return nret;
-            }
-
-            */
-
-        }
+    }
     fclose(fp);
     return PAM_SUCCESS;
 }

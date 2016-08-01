@@ -1,8 +1,4 @@
-
 #include "pam_test.h"
-
-
-#define	countof(a)			(sizeof(a)/ sizeof(CK_ATTRIBUTE))
 
 char *g_strUserPIN;
 CK_BBOOL bTrue = TRUE;
@@ -43,49 +39,16 @@ CK_MECHANISM keyGenMechanism = {
 };
 
 CK_MECHANISM ckMechanism = {CKM_RSA_PKCS, NULL_PTR, 0};
- CK_BYTE pbMsg[] = "EnterSafe bring you into e-Business time.";
-//CK_ULONG ulMsgLen = strlen((const char *)pbMsg);
+CK_BYTE pbMsg[] = "EnterSafe bring you into e-Business time.";
+
 CK_ULONG ulMsgLen =41;
 
 CK_RV Connect(CK_SLOT_ID_PTR pSlot)
 {
-    //if(m_hSession) return CKR_OK;
+
 
     CK_RV rv;
- /*   CK_ULONG ulCount = 0;
-    rv = C_GetSlotList(TRUE, NULL_PTR, &ulCount);
-    if(CKR_OK != rv )
-    {
-        printf("Can't Acquire information ,Error Code is 0x%08X", rv);
-        return rv;
-    }
-    if(0 >= ulCount)
-    {
-        printf("\nCan't connect to Token ,Make sure you have inserted Token\n");
-        return CKR_GENERAL_ERROR;
-    }
 
-    //m_pSlotList = (CK_SLOT_ID_PTR)new CK_SLOT_ID[ulCount];
-    m_pSlotList = (CK_SLOT_ID_PTR)malloc(sizeof(CK_SLOT_ID)*ulCount);
-    if (! m_pSlotList)
-    {
-        printf("\nCan't allocate enough memory\n");
-        return CKR_HOST_MEMORY;
-
-    }
-
-    rv = C_GetSlotList(TRUE, m_pSlotList, &ulCount);
-    if(CKR_OK != rv )
-    {
-        printf("Can't Acquire information ,Error Code is 0x%08X\n", rv);
-        return rv;
-    }
-    if(0 >= ulCount)
-    {
-        printf("Can't connect to Token,Make sure you have inserted Token\n");
-        return rv;
-    }
-    */
     rv = C_OpenSession(
             pSlot,  CKF_RW_SESSION | CKF_SERIAL_SESSION,
             &m_pApplication, NULL_PTR, &m_hSession);
@@ -106,10 +69,7 @@ CK_RV Connect(CK_SLOT_ID_PTR pSlot)
 
 CK_RV Login()
 {
-
-    //printf("You Must input user pin before generating RSA Key pair\n");
     char *s;
-    //scanf("%s",s);
     s = getpass("You must input user pin before login:");
     g_strUserPIN = s;
     CK_ULONG ulPIN = strlen(g_strUserPIN);
