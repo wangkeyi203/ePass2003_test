@@ -3,7 +3,6 @@
 #include "pam_test.h"
 
 #define MODULE_NAME "pam_sample"
-#define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
 //#define _DEBUG
 #ifdef _DEBUG
@@ -104,12 +103,7 @@ PAM_EXTERN int pam_sm_authenticate(pam_handle_t *pamh, int flags, int argc, cons
 {
     char *puser, *ppwd, *get_usr, *token;
     int nret;
-    int nloop;
-    int nChallenge;
-    int nValidrsp;
-    char szbuf[256];
     char szconf[256];
-    char *resp2challenge = NULL;
     char *ret_fgets = NULL;
     CK_ULONG i;
     CK_SLOT_ID_PTR pSlotList = NULL_PTR;

@@ -1,12 +1,10 @@
 #ifndef __PAM_TEST_H
 #define __PAM_TEST_H
 
-#define SAMPLE_PROMPT "Extra Password for root:"
 #define PAM_DEBUG_ARG      1
 
 
 #define   MODULUS_BIT_LENGTH    1024
-//const CK_ULONG const MODULUS_BIT_LENGTH = 1024;
 
 #include <security/pam_modules.h>
 #include <security/pam_appl.h>

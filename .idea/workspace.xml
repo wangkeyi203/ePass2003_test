@@ -11,11 +11,20 @@
     </ADDITIONAL_GENERATION_ENVIRONMENT>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a684063-617e-4e80-aeec-10ba28ad3e48" name="Default" comment="">
+    <list default="true" id="2a684063-617e-4e80-aeec-10ba28ad3e48" name="Default" comment="delete some code">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ePass2003_test.iml" afterPath="$PROJECT_DIR$/.idea/ePass2003_test.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SKFAPI.h" afterPath="$PROJECT_DIR$/SKFAPI.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auxiliary.h" afterPath="$PROJECT_DIR$/auxiliary.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cryptoki.h" afterPath="$PROJECT_DIR$/cryptoki.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cryptoki_ext.h" afterPath="$PROJECT_DIR$/cryptoki_ext.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cryptoki_linux.h" afterPath="$PROJECT_DIR$/cryptoki_linux.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cryptoki_win32.h" afterPath="$PROJECT_DIR$/cryptoki_win32.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pam_test.c" afterPath="$PROJECT_DIR$/pam_test.c" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pam_test.h" afterPath="$PROJECT_DIR$/pam_test.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.c" afterPath="$PROJECT_DIR$/test.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkcs11.h" afterPath="$PROJECT_DIR$/pkcs11.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkcs11f.h" afterPath="$PROJECT_DIR$/pkcs11f.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pkcs11t.h" afterPath="$PROJECT_DIR$/pkcs11t.h" />
     </list>
     <ignored path="ePass2003_test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +59,9 @@
           <file leaf-file-name="pam_test.c" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pam_test.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-                  <folding>
-                    <element signature="e#186#250#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="-234">
+                  <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -62,11 +69,9 @@
           <file leaf-file-name="pam_test.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pam_test.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-180">
-                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#211#244#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="162">
+                  <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -94,7 +99,7 @@
           <file leaf-file-name="cryptoki_linux.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cryptoki_linux.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
+                <state relative-caret-position="702">
                   <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
                   <folding />
                 </state>
@@ -106,16 +111,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
                   <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="_pam_types.h" pinned="false" current-in-tab="false">
-            <entry file="file:///usr/include/security/_pam_types.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="18">
-                  <caret line="1" column="25" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -139,7 +134,7 @@
             <entry file="file://$PROJECT_DIR$/test.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="72">
-                  <caret line="49" column="28" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="28" />
+                  <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -174,9 +169,9 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="25" />
+    <option name="y" value="28" />
     <option name="width" value="1366" />
-    <option name="height" value="718" />
+    <option name="height" value="706" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -230,116 +225,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/pam_test.c</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Application.Build All">
     <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ePass2003_test" TARGET_NAME="ePass2003_test" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
@@ -534,6 +419,10 @@
       <workItem from="1469753247621" duration="8668000" />
       <workItem from="1469783531768" duration="2143000" />
       <workItem from="1470014206220" duration="4070000" />
+      <workItem from="1470036368071" duration="376000" />
+      <workItem from="1470105106487" duration="431000" />
+      <workItem from="1470122429969" duration="165000" />
+      <workItem from="1470217128269" duration="164000" />
     </task>
     <task id="LOCAL-00001" summary="creat project">
       <created>1469690236060</created>
@@ -588,30 +477,31 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37277000" />
+    <option name="totallyTimeSpent" value="38413000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1366" height="718" extended-state="1" />
+    <frame x="0" y="28" width="1366" height="706" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15321375" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15981735" sideWeight="0.49373883" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3255814" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33043477" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35969868" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15981735" sideWeight="0.50626117" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871974" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869565" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -670,7 +560,8 @@
     <MESSAGE value="have some bugs" />
     <MESSAGE value="root login" />
     <MESSAGE value="fix number bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix number bug" />
+    <MESSAGE value="delete some code" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete some code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -707,9 +598,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3978">
           <caret line="221" column="13" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="13" />
-          <folding>
-            <element signature="e#186#250#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -721,14 +610,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/security/_pam_types.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/security/_pam_types.h" />
     <entry file="file://$PROJECT_DIR$/skf_test.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -789,9 +671,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3600">
           <caret line="200" column="33" selection-start-line="200" selection-start-column="33" selection-end-line="200" selection-end-column="33" />
-          <folding>
-            <element signature="e#186#250#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -803,14 +683,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/security/_pam_types.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/security/_pam_types.h" />
     <entry file="file://$PROJECT_DIR$/skf_test.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -823,9 +696,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#211#244#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -880,9 +751,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2880">
           <caret line="160" column="21" selection-start-line="160" selection-start-column="17" selection-end-line="160" selection-end-column="24" />
-          <folding>
-            <element signature="e#186#250#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -894,14 +763,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/security/_pam_types.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/security/_pam_types.h" />
     <entry file="file://$PROJECT_DIR$/skf_test.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -914,9 +776,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="21" column="47" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="e#211#244#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -943,27 +803,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/PKCSDemo.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/main.cpp" />
+    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/PKCSDemo.h" />
     <entry file="file://$PROJECT_DIR$/pam_test.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3060">
           <caret line="170" column="23" selection-start-line="170" selection-start-column="11" selection-end-line="170" selection-end-column="23" />
-          <folding>
-            <element signature="e#186#250#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -983,20 +829,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/PKCSDemo.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/PKCSDemo.h" />
+    <entry file="file://$USER_HOME$/桌面/ePass2003/x86_64/sample/source/PKCSDemo/main.cpp" />
     <entry file="file://$PROJECT_DIR$/cryptoki_win32.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1005,14 +839,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/security/_pam_types.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/security/_pam_types.h" />
     <entry file="file://$PROJECT_DIR$/skf_test.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1044,14 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="49" column="28" selection-start-line="49" selection-start-column="14" selection-end-line="49" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1060,31 +879,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pam_test.h">
+    <entry file="file://$PROJECT_DIR$/cryptoki_linux.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#211#244#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="702">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cryptoki_linux.h">
+    <entry file="file://$PROJECT_DIR$/test.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        <state relative-caret-position="72">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pam_test.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pam_test.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
-          <folding>
-            <element signature="e#186#250#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-234">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
